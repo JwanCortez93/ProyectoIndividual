@@ -8,8 +8,8 @@ module.exports = (sequelize) => {
     {
       id: {
         type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        defaulValue: DataTypes.UUIDV4,
       },
 
       name: {

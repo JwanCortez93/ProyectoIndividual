@@ -5,32 +5,36 @@ const {
   createVideogame,
 } = require("../controllers/videogamesControllers.js");
 
-const getVideogamesHandler = (req, res) => {
+const getVideogamesHandler = async (req, res) => {
   try {
-    const videogames = getVideogames();
-    res.status(200).json(videogames);
+    const query = req.query;
+    if (!Object.keys(query).length) {
+      const videogames = await getVideogames();
+      return res.status(200).json(videogames);
+    }
+    const videogame = await searchVideogame(query.name);
+    return res.status(200).json(videogame);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
-const getVideogameHandler = (req, res) => {
+const getVideogameHandler = async (req, res) => {
   try {
-    const videogame = getVideogame(req.params.id);
+    console.log(req.params);
+    const videogame = await getVideogame(req.params.id);
+    console.log(videogame);
+    // res.status(200).json(videogame);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
-const searchVideogameHandler = (req, res) => {
+const createVideogameHandler = async (req, res) => {
   try {
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
-
-const createVideogameHandler = (req, res) => {
-  try {
+    const videogame = req.body;
+    const newVideogame = await createVideogame(videogame);
+    res.status(201).json(newVideogame);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -39,6 +43,5 @@ const createVideogameHandler = (req, res) => {
 module.exports = {
   getVideogamesHandler,
   getVideogameHandler,
-  searchVideogameHandler,
   createVideogameHandler,
 };
