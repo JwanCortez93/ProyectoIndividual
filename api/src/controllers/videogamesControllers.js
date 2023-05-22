@@ -31,6 +31,7 @@ const searchVideogame = async (name) => {
     },
   });
   const API_videogames = await axios(`${URL}${API_KEY}&search=${name}`);
+
   return [...DB_videogames, ...API_videogames.data.results].slice(0, 15);
 };
 const createVideogame = async ({

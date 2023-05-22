@@ -8,7 +8,6 @@ const getGenres = async () => {
   const genres = await axios(`${URL}${API_KEY}`);
   const newGenres = [];
   genres.data.results.forEach((genre) => newGenres.push({ name: genre.name }));
-
   await Genre.bulkCreate(newGenres);
   return genres.data.results;
 };

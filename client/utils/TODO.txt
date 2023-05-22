@@ -1,0 +1,12 @@
+-Poner para que aparezcan los juegos de la mimsa saga
+
+(La propiedad slug tienen las mismas palabras, hacer una búsqueda de atrás para adelante)
+
+-Poner el rating con estrellas
+
+-Poner los primeros 5 tags más importantes
+
+-Buscar una forma de filtrar por "release date > today" para juegos que están por salir
+
+-Hacer un dropdown en la barra de búsqueda que preview los juegos a medida que se va escribiendo (useEffect)
+
