@@ -21,7 +21,6 @@ const getVideogamesHandler = async (req, res) => {
 
 const getVideogameHandler = async (req, res) => {
   try {
-    console.log(req.params);
     const videogame = await getVideogame(req.params.id);
     res.status(200).json(videogame);
   } catch (error) {

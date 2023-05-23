@@ -1,0 +1,47 @@
+.DetailCard{
+    
+    height:100%;
+    margin-top:1%;
+    background-color: blue;
+    display: grid;
+grid-template-columns: 50% 45% 5%;
+grid-template-rows: 15% 50% 5% 20% 10%;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+} 
+   
+      
+    .image { grid-area: 1 / 1 / 6 / 2; 
+    width:100%;
+    height:100%;
+    
+    
+    object-fit: cover;
+background-color: cornsilk;}
+    .name { grid-area: 1 / 2 / 2 / 4;
+        height:100%; 
+    background-color: rgb(91, 197, 103);}
+    .description { grid-area: 2 / 2 / 3 / 4; 
+        padding:1em;
+        height:100%;
+        font-size: 100%;
+    background-color: rgb(181, 189, 217);}
+    .releaseDate { grid-area: 3 / 2 / 4 / 4;
+        height:100%; 
+    background-color: rgb(140, 44, 143);}
+    .genres { grid-area: 4 / 2 / 5 / 4; 
+        height:100%;
+        display:flex;
+        justify-content: space-around;
+    background-color: rgb(19, 186, 208);}
+    .platforms { grid-area: 5 / 2 / 6 / 3; 
+        height:100%;
+        display:flex;
+        justify-content: space-around;
+    background-color: rgb(234, 138, 12);}
+    .id { grid-area: 5 / 3 / 6 / 4; 
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        height:100%;
+    background-color: rgb(154, 6, 18);}

@@ -1,8 +1,0 @@
-.gridContainer {
-    width:100%;
-    background-color: yellow;
-    display: grid;
-    
-    grid-template-columns: repeat(4, 2fr); /* Create four columns with equal width */
-    grid-gap: 2em;
-}

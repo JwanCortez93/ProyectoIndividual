@@ -1,0 +1,6 @@
+.div {
+    height:10%;
+    display:flex;
+    justify-content: space-evenly;
+    background-color: #000000;
+}

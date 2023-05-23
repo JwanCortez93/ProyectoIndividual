@@ -1,0 +1,29 @@
+.container{
+    background-color: rgb(78, 194, 113);
+    display:flex;
+    flex-direction: column;
+}
+
+.inputText{
+    font-size: 0.7em;
+}
+
+.genres{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+    
+    .div1 { grid-area: 1 / 1 / 2 / 2;
+    font-size: 0.8em; }
+    .div2 { grid-area: 1 / 2 / 2 / 3; 
+        font-size: 0.8em;}
+    .div3 { grid-area: 2 / 1 / 3 / 2;
+        font-size: 0.8em; }
+    .div4 { grid-area: 2 / 2 / 3 / 3;
+        font-size: 0.8em; }
+    .div5 { grid-area: 3 / 1 / 4 / 3;
+        font-size: 0.8em; }

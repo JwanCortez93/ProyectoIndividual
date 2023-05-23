@@ -1,0 +1,46 @@
+.container{
+    background-color: green;
+  
+    height: 95%;
+    width: 95%;
+    overflow:hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10% 0% 10% 0% / 10% 0% 10% 0%;
+    background: #a80b0b;
+    box-shadow:  -10px -10px 9px #6c0707,
+                 10px 10px 9px #e40f0f;
+
+    
+}
+
+.img {
+    background-color: rgb(0, 217, 255);
+    height:100%;
+    width:100%;
+    
+    object-fit: cover;
+    
+}
+
+.name {
+    font-size: 150%;
+    background-color: darkorange;
+    border-radius: 10px, black, solid;
+    margin-bottom: 0;
+}
+
+.genresContainer {
+    background-color: darkorange;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(33%, 50%));
+    
+
+}
+
+.genre {
+    font-size: 100%;
+    background-color: tomato;
+}

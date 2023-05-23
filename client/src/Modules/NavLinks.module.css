@@ -1,0 +1,13 @@
+.div {
+    width: 50%;
+    height: 100%;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.divLink {
+    background-color: burlywood;
+    font-size: 200%;
+}

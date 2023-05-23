@@ -1,12 +1,13 @@
 import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { Home } from "./components/Home";
-import { Landing } from "./components/Landing";
-import { Nav } from "./components/Nav";
-import { Detail } from "./components/Detail";
-import { Error } from "./components/Error";
-import { About } from "./components/About";
-import { Favorites } from "./components/Favorites";
+import { Home } from "./components/Home/Home";
+import { Landing } from "./components/Landing/Landing";
+import { Nav } from "./components/Nav/Nav";
+import { Detail } from "./components/Detail/Detail";
+import { Error } from "./components/Error/Error";
+import { About } from "./components/About/About";
+import { Favorites } from "./components/Favorites/Favorites";
+import { Create } from "./components/Create/Create";
 
 function App() {
   const location = useLocation();
@@ -20,6 +21,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Landing />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/create" element={<Create />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>

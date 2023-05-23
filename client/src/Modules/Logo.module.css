@@ -1,0 +1,10 @@
+.logo {
+    margin-left:3em;
+    font-size: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100px;
+    height: 100%;
+    background-color: aquamarine;
+}
