@@ -5,7 +5,7 @@ import { Page2 } from "./Page2";
 import { Page3 } from "./Page3";
 import { Page4 } from "./Page4";
 
-export const Form = () => {
+export const Form = ({ genres, platforms, stores }) => {
   const [page, setPage] = useState(1);
   const [form, setForm] = useState({
     name: "",
@@ -16,7 +16,7 @@ export const Form = () => {
     platforms: [],
     rating: 0,
     stores: [],
-    tags: [],
+    tags: "",
     esrb_rating: "",
   });
 
@@ -53,11 +53,22 @@ export const Form = () => {
     console.log(form);
   };
 
+  const checkCheckBox = (name, info) => {
+    return form[info].includes(name);
+  };
+
   return (
     <div>
       <form className={style.container} onSubmit={handleSubmit}>
         {page === 1 ? (
-          <Page1 handleChange={handleChange} nextPage={nextPage} />
+          <Page1
+            check={checkCheckBox}
+            formName={form.name}
+            genres={genres}
+            image={form.image}
+            handleChange={handleChange}
+            nextPage={nextPage}
+          />
         ) : null}
         {page === 2 ? (
           <Page2
@@ -68,6 +79,11 @@ export const Form = () => {
         ) : null}
         {page === 3 ? (
           <Page3
+            check={checkCheckBox}
+            releaseDate={form.releaseDate}
+            rating={form.rating}
+            platforms={platforms}
+            stores={stores}
             handleChange={handleChange}
             nextPage={nextPage}
             previousPage={previousPage}
