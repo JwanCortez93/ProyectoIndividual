@@ -18,6 +18,8 @@
 
 //! LA PÁGINA FORM SE ROMPE LA SEGUNDA VEZ QUE SE VISITA, TIENE QUE VER CON EL ERROR DE ARRIBA
 
+// todo: El nav del landing tiene que ser diferente (Log in / Sign up)
+
 // todo: Hacer que el background de App.css (o index.css) llegue hasta el fondo de la página
 
 // todo: Landing Page
@@ -40,6 +42,8 @@
 // todo: Llenar cada página de mensajes explicativos
 
 // ?-HACER UNA RUTA "EXPLORE" Y AHI METER FILTROS POR GÉNERO,ETC
+
+// ?-Hacer una tabla de usuarios para guardar los mails de registro
 
 // ?-Poner para que aparezcan los juegos de la mimsa saga (La propiedad slug tienen las mismas palabras, hacer una búsqueda de atrás para adelante)
 

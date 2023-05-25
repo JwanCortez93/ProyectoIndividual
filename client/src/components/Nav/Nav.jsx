@@ -8,7 +8,7 @@ export const Nav = () => {
   return (
     <div className={style.div}>
       <Link style={{ textDecoration: "none", color: "black" }} to="/home">
-        <Logo />
+        <Logo className={style.logo} />
       </Link>
 
       <NavLinks />
