@@ -1,5 +1,7 @@
 import "./App.css";
-import { Routes, Route, useLocation } from "react-router-dom";
+import axios from "axios";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Home } from "./components/Home/Home";
 import { Landing } from "./components/Landing/Landing";
 import { Nav } from "./components/Nav/Nav";
@@ -11,6 +13,19 @@ import { Create } from "./components/Create/Create";
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [access, setAccess] = useState(false);
+
+  async function login(userData) {
+    const { email, password } = userData;
+    await axios
+      .post(`http://localhost:3001/users/`, userData)
+      .then(({ data }) => {
+        const { access } = data;
+        setAccess(access);
+        access && navigate("/home");
+      });
+  }
 
   return (
     <div className="App">
@@ -19,7 +34,7 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/about" element={<About />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Landing login={login} />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/create" element={<Create />} />
         <Route path="*" element={<Error />} />

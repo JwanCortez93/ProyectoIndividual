@@ -3,6 +3,7 @@ const genresRouter = require("../routes/genresRouter");
 const videogamesRouter = require("../routes/videogamesRouter");
 const platformsRouter = require("../routes/platformsRouter");
 const storesRouter = require("../routes/storesRouter");
+const userRouter = require("../routes/userRouter");
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -13,6 +14,7 @@ router.use("/videogames", videogamesRouter);
 router.use("/genres", genresRouter);
 router.use("/platforms", platformsRouter);
 router.use("/stores", storesRouter);
+router.use("/users", userRouter);
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
