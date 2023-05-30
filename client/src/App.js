@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Home } from "./components/Home/Home";
 import { Landing } from "./components/Landing/Landing";
 import { Nav } from "./components/Nav/Nav";
@@ -17,7 +17,6 @@ function App() {
   const [access, setAccess] = useState(false);
 
   async function login(userData) {
-    const { email, password } = userData;
     await axios
       .post(`http://localhost:3001/users/`, userData)
       .then(({ data }) => {

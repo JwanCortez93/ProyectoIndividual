@@ -7,8 +7,9 @@ const { Op } = require("sequelize");
 const URL = `https://api.rawg.io/api/games`;
 
 const getVideogames = async () => {
-  const API_videogames = await axios(`${URL}${API_KEY}`);
+  const API_videogames = await axios(`${URL}${API_KEY}&page_size=15`);
   const DB_videogames = await Videogame.findAll();
+  console.log(API_videogames.data.results.length);
   return [...DB_videogames, ...API_videogames.data.results];
 };
 

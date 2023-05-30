@@ -1,9 +1,13 @@
 import style from "../../Modules/Landing.module.css";
 import { LandingNav } from "../Landing/LandingNav";
+
 import { useState } from "react";
 import { validateEmail, validatePassword } from "./UserValidation";
+import { NewUserForm } from "./NewUserForm";
 
 export const Landing = ({ login }) => {
+  const [check, setCheck] = useState(false);
+
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -33,6 +37,10 @@ export const Landing = ({ login }) => {
     if (!errors.userError && !errors.passwordError) {
       login(userData);
     }
+  };
+
+  const handleRegister = () => {
+    setCheck(true);
   };
 
   return (
@@ -96,7 +104,12 @@ export const Landing = ({ login }) => {
                 Log In
               </button>
             </form>
+            <label>No tenés cuenta?</label>{" "}
+            <button onClick={handleRegister}>Regístrate!</button>
           </div>
+        </div>
+        <div className={check ? style.createUser2 : style.createUser1}>
+          <NewUserForm />
         </div>
       </div>
     </div>

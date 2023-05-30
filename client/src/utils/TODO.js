@@ -1,5 +1,11 @@
 //!//-ARREGLAR LA FORM PARA QUE NO SE BORREN COMO MOSTRÓ GUIDO "(name=form.name)"
 
+//! ARREGLAR EL FUCKING CSS DEL SEARCHBAR
+
+//! EL LINK DEL SEARCHBAR NO VA A LA PÁGINA SI YA SE ENTRÓ ANTES
+
+//! FALTA QUE APAREZCA LA VALIDACIÓN DE AMBOS LOGINS EN EL FRONT
+
 //-EL FORM ESTÁ ANDANDO MAL, NO GUARDA EN EL STATE. REVISAR (Creo que está arreglado)
 
 // ! FALTAN HACER RELACIONES EN LA DB
@@ -22,13 +28,13 @@
 
 // todo: El nav del landing tiene que ser diferente (Log in / Sign up)
 
-// todo: Hacer que el background de App.css (o index.css) llegue hasta el fondo de la página
-
 // todo: Landing Page
 
 // todo: Favorites
 
 // todo: Error Page
+
+// todo: About Page
 
 // todo: Habría que agregarle una key a todos los maps así ese aviso en la consola deja de aparecer y no rompe las bolas
 
@@ -36,7 +42,7 @@
 
 // todo: SubNav, Menu y Extras de /Home
 
-// todo: Hacer el LOGO
+///// todo: Hacer el LOGO
 
 // todo: Cuando no hay Nav, hay un espacio arriba que no sé de donde sale (Un margin tal vez?)
 //* (Probablemente no tenga nunca una ruta sin Nav, así que este problema bajó de prioridad)
@@ -45,7 +51,7 @@
 
 // ?-HACER UNA RUTA "EXPLORE" Y AHI METER FILTROS POR GÉNERO,ETC
 
-// ?-Hacer una tabla de usuarios para guardar los mails de registro
+///// ?-Hacer una tabla de usuarios para guardar los mails de registro
 
 // ?-Poner para que aparezcan los juegos de la mimsa saga (La propiedad slug tienen las mismas palabras, hacer una búsqueda de atrás para adelante)
 
@@ -55,7 +61,7 @@
 
 // ?-Buscar una forma de filtrar por "release date > today" para juegos que están por salir
 
-// ?-Hacer un dropdown en la barra de búsqueda que preview los juegos a medida que se va escribiendo (useEffect)
+///// ?-Hacer un dropdown en la barra de búsqueda que preview los juegos a medida que se va escribiendo (useEffect)
 
 //? -Permitir que en la form de creación se suba una imagen a la base de datos y que haga una vista previa de la imagen
 

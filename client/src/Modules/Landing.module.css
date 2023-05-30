@@ -120,7 +120,7 @@
 
   .form_button{
     display:flex;
-    
+    flex-direction: column;
     margin-left: 17em;
 
     font-size: 0.3em;
@@ -171,7 +171,30 @@ text-shadow:0px 1px 0px #810e05;
         background-color:#f24437;
     }
    
-  
+    .createUser1{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      display:none 
+    }
+    .createUser2{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      display: block;
+      z-index: 4;
+    }
+
+
+
 
 .container{
     display: flex;
