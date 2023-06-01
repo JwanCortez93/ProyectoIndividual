@@ -22,7 +22,7 @@ export const NavLinks = () => {
           <h3 className={style.divLink}>My List</h3>
         </Link>
         <Link style={{ textDecoration: "none", color: "black" }} to="/create">
-          <h3 className={style.divLink}>Create your own!</h3>
+          <h3 className={style.divLink}>Create my own!</h3>
         </Link>
       </div>
     </div>

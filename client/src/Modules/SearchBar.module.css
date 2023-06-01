@@ -26,6 +26,10 @@
 
 }
 
+.predictions:focus-within{
+  display:none;
+}
+
 .items {
   display:flex;
   

@@ -1,5 +1,9 @@
 //!//-ARREGLAR LA FORM PARA QUE NO SE BORREN COMO MOSTRÓ GUIDO "(name=form.name)"
 
+//! EL RATING NECESITA FONDO, SE PIERDE EN ALGUNAS IMÁGENES
+
+//! IGNORAR DUPLICADOS EN EL useEffect DE APP.js (usando el store)
+
 //! ARREGLAR EL FUCKING CSS DEL SEARCHBAR
 
 //! EL LINK DEL SEARCHBAR NO VA A LA PÁGINA SI YA SE ENTRÓ ANTES
@@ -10,21 +14,23 @@
 
 // ! FALTAN HACER RELACIONES EN LA DB
 
+//!Ordenar alfabéticamente las opciones de los selects en Home
+
 // ! LA BASE DE DATOS NO TIENE LA CANTIDAD DE PROPIEDADES QUE DEBE TENER, ARREGLAR ANTES DE HACER EL .POST
 
 // !-EN FORM SI SE HACE CLICK POR ERROR EN UN CHECKBOX Y LUEGO SE DESACTIVA, EL ELEMENTO QUEDA GUARDADO IGUAL EN EL STATE
 
 // !-LOS TAGS EN FORM DEBERÍAN SUMARSE AL STATE EN ARRAY, BUSCAR UNA FORMA DE ESCRIBIR VARIOS EN UN SOLO INPUT PERO QUE SEAN AGREGADOS POR SEPARADO
 
-// !-LA PAGINA FORM HACE LLAMADOS CADA VEZ QUE SE VISITA.
-//* Idea 1: reconfigurar el servidor, crear la base de datos en /Home y traer directamente de la base de datos en /Form
-// Pros: No solo es 100% seguro que arreglará el problema, es probablemente lo que se esperaba desde un principio
-// Cons: Requiere una reconfiguracción grande del servidor, lo cual va a tomar tiempo y tal vez romper otras cosas
-//* Idea 2: Crear un estado global con Redux con páginas visitadas para evitar el uso del useEffect
-// Pros: No necesito reconfigurar nada, simplemente agregar código. 0% chance de que algo se rompa
-// Cons: No estoy seguro si arreglará el problema (65% chance) y requiere usar store y Redux que no me gusta
+///// !-LA PAGINA FORM HACE LLAMADOS CADA VEZ QUE SE VISITA.
+/////* Idea 1: reconfigurar el servidor, crear la base de datos en /Home y traer directamente de la base de datos en /Form
+///// Pros: No solo es 100% seguro que arreglará el problema, es probablemente lo que se esperaba desde un principio
+///// Cons: Requiere una reconfiguracción grande del servidor, lo cual va a tomar tiempo y tal vez romper otras cosas
+/////* Idea 2: Crear un estado global con Redux con páginas visitadas para evitar el uso del useEffect
+///// Pros: No necesito reconfigurar nada, simplemente agregar código. 0% chance de que algo se rompa
+///// Cons: No estoy seguro si arreglará el problema (65% chance) y requiere usar store y Redux que no me gusta
 
-//! LA PÁGINA FORM SE ROMPE LA SEGUNDA VEZ QUE SE VISITA, TIENE QUE VER CON EL ERROR DE ARRIBA
+/////! LA PÁGINA FORM SE ROMPE LA SEGUNDA VEZ QUE SE VISITA, TIENE QUE VER CON EL ERROR DE ARRIBA
 
 // todo: El nav del landing tiene que ser diferente (Log in / Sign up)
 
@@ -49,7 +55,13 @@
 
 // todo: Llenar cada página de mensajes explicativos
 
+// ?-TERMINAR EL VisitHistory en App.js
+
+// ?-DELETE VIDEOGAMES está sin terminar
+
 // ?-HACER UNA RUTA "EXPLORE" Y AHI METER FILTROS POR GÉNERO,ETC
+
+// ?-Hacer el Log Out
 
 ///// ?-Hacer una tabla de usuarios para guardar los mails de registro
 

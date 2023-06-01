@@ -2,7 +2,7 @@ import style from "../../Modules/Detail.module.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { DetailCard } from "./DetailCard";
+import DetailCard from "./DetailCard";
 
 export const Detail = () => {
   const [videogame, setVideogame] = useState({});

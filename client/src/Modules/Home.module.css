@@ -16,9 +16,9 @@
         grid-area: 1 / 1 / 4 / 2; 
     background-color: beige;
             }
-    .Menu { grid-area: 1 / 2 / 2 / 3;
+    .Poster { grid-area: 1 / 2 / 2 / 3;
         background-color: rgb(194, 194, 104); }
-    .Poster { grid-area: 2 / 2 / 3 / 3; 
+    .Menu { grid-area: 2 / 2 / 3 / 3; 
         background-color: rgb(196, 110, 110);}
     .Cards { grid-area: 3 / 2 / 4 / 3; 
         background-color: rgb(156, 69, 155);}

@@ -1,9 +1,19 @@
 import style from "../../Modules/Favorites.module.css";
+import { connect } from "react-redux";
+import { CardsFavorite } from "./CardsFavorite";
 
-export const Favorites = () => {
+const Favorites = ({ myFavorites }) => {
   return (
     <div className={style.div}>
-      <h1>Esta es la Favorites page</h1>
+      <CardsFavorite myFavorites={myFavorites} />
     </div>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites,
+  };
+};
+
+export default connect(mapStateToProps, null)(Favorites);

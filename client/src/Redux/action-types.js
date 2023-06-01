@@ -1,0 +1,10 @@
+export const ADD_FAV = "ADD_FAV";
+export const REMOVE_FAV = "REMOVE_FAV";
+export const ADD_ALL_FAVS = "ADD_ALL_FAVS";
+export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
+export const ADD_VIDEOGAME = "ADD_VIDEOGAME";
+export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME";
+export const GET_PLATFORMS = "GET_PLATFORMS";
+export const GET_GENRES = "GET_GENRES";
+export const GET_STORES = "GET_STORES";
+export const FILTER_VIDEOGAMES = "FILTER_VIDEOGAMES";

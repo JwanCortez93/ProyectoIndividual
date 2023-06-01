@@ -36,6 +36,10 @@ module.exports = (sequelize) => {
       rating: {
         type: DataTypes.FLOAT,
       },
+
+      genre: {
+        type: DataTypes.STRING,
+      },
     },
     { timestamps: false }
   );

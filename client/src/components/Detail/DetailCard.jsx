@@ -1,6 +1,13 @@
 import style from "../../Modules/DetailCard.module.css";
-import { Menu } from "../Home/Menu";
-export const DetailCard = ({
+import Menu from "../Home/Menu";
+import { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { addFav, removeFav } from "../../Redux/actions";
+
+const DetailCard = ({
+  myFavorites,
+  addFav,
+  removeFav,
   id,
   name,
   image,
@@ -10,6 +17,18 @@ export const DetailCard = ({
   rating,
   genres,
 }) => {
+  const [isFav, setIsFav] = useState(false);
+
+  useEffect(() => {
+    if (name && myFavorites) {
+      myFavorites.forEach((fav) => {
+        if (fav.name === name) {
+          setIsFav(true);
+        }
+      });
+    }
+  }, [name, myFavorites]);
+
   if (!platforms) {
     return (
       <div
@@ -21,10 +40,24 @@ export const DetailCard = ({
     );
   }
 
+  const handleFavorite = () => {
+    if (isFav) {
+      setIsFav(false);
+      removeFav(name);
+    } else if (!isFav) {
+      setIsFav(true);
+      addFav(name);
+    }
+    console.log(myFavorites);
+
+    console.log(isFav);
+  };
+
   const genresArray = [];
   genres.forEach((genre) =>
     genresArray.push({ id: genre.id, name: genre.name })
   );
+
   const platformsArray = [];
   platforms.forEach((platform) =>
     platformsArray.push({
@@ -46,6 +79,10 @@ export const DetailCard = ({
       <Menu />
       <div className={style.DetailCard}>
         <img className={style.image} src={image} alt={name} />
+        <h2 className={style.rating}>⭐{rating}</h2>
+        <button onClick={handleFavorite} className={style.button}>
+          {isFav ? "Remove from my list" : "Add to my List"}
+        </button>
         <h1 className={style.name}>{name}</h1>
         <div className={style.description}>
           <p>{removeEspañol(description)}</p>
@@ -71,7 +108,25 @@ export const DetailCard = ({
         </div>
         <h4 className={style.id}>#{id}</h4>
       </div>
-      <h2 clasmsName={style.rating}>{rating}</h2>
     </div>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFav: (name) => {
+      dispatch(addFav(name));
+    },
+    removeFav: (name) => {
+      dispatch(removeFav(name));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DetailCard);
