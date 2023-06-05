@@ -7,7 +7,7 @@ const getUser = async ({ email, password }) => {
       password,
     },
   });
-  return foundUser;
+  return foundUser ? foundUser.access : false;
 };
 
 const postUser = async ({ email, password }) => {

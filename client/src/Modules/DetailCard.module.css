@@ -50,6 +50,10 @@ background-color: cornsilk;}
 
     .rating{
         position:absolute;
+        padding-left:0.3em;
+        padding-right:0.5em;
+        background-color: rgba(202, 202, 202, 0.676);
+        border-radius: 3em;
         
         margin-left:1.5em
     }

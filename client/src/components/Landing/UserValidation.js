@@ -13,7 +13,7 @@ export function validatePassword(password) {
 export function validatePasswordCreated(password, checkPassword) {
   const passwordNumberRegex = /\d/;
   const passwordLengthRegex = /^.{6,15}$/;
-  if (!password) return "Este campo es obligatorio";
+  if (!password) return "You must create a password";
   if (!passwordNumberRegex.test(password))
     return "La contraseña debe contener al menos un número";
   if (!passwordLengthRegex.test(password))

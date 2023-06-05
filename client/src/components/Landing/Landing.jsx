@@ -5,7 +5,7 @@ import { useState } from "react";
 import { validateEmail, validatePassword } from "./UserValidation";
 import { NewUserForm } from "./NewUserForm";
 
-export const Landing = ({ login }) => {
+export const Landing = ({ login, setAccess }) => {
   const [check, setCheck] = useState(false);
 
   const [userData, setUserData] = useState({
@@ -25,11 +25,11 @@ export const Landing = ({ login }) => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const emailStatus = validateEmail(userData.email);
     const passwordStatus = validatePassword(userData.password);
-    setErrors({
+    await setErrors({
       userError: emailStatus,
       passwordError: passwordStatus,
     });
@@ -86,30 +86,37 @@ export const Landing = ({ login }) => {
         <div className={style.loginDiv}>
           <div className={style.form_button}>
             <form onSubmit={handleSubmit} className={style.form}>
-              <label>Email: </label>
-              <input
-                className={style.inputText}
-                type="text"
-                name="email"
-                onChange={handleChange}
-              ></input>
-              <label>Password: </label>
-              <input
-                className={style.inputText}
-                type="password"
-                name="password"
-                onChange={handleChange}
-              ></input>
+              <div>
+                <input
+                  placeholder="Email:"
+                  className={style.inputText}
+                  type="text"
+                  name="email"
+                  onChange={handleChange}
+                ></input>
+
+                {errors.userError ? <p>{errors.userError}</p> : null}
+              </div>
+              <div>
+                <input
+                  placeholder="Password:"
+                  className={style.inputText}
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                ></input>
+                {errors.passwordError ? <p>{errors.passwordError}</p> : null}
+              </div>
               <button type="submit" className={style.button}>
                 Log In
               </button>
             </form>
-            <label>No tenés cuenta?</label>{" "}
+            <label>No tenés cuenta?</label>
             <button onClick={handleRegister}>Regístrate!</button>
           </div>
         </div>
         <div className={check ? style.createUser2 : style.createUser1}>
-          <NewUserForm />
+          <NewUserForm setAccess={setAccess} />
         </div>
       </div>
     </div>

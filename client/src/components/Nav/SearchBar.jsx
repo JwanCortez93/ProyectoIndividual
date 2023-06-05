@@ -2,8 +2,11 @@ import { useState } from "react";
 import style from "../../Modules/SearchBar.module.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { changeVideogames } from "../../Redux/actions";
 
-export const SearchBar = () => {
+const SearchBar = ({ changeVideogames }) => {
+  const [searchText, setSearchText] = useState("");
   const [predictions, setPredictions] = useState([]);
 
   const searchGames = async (name) => {
@@ -13,7 +16,15 @@ export const SearchBar = () => {
     return foundGames.data;
   };
 
+  const handleSearch = async (event) => {
+    const foundGames = await axios.get(
+      `http://localhost:3001/videogames?name=${searchText}`
+    );
+    changeVideogames(foundGames.data);
+  };
+
   const handleChange = async (event) => {
+    setSearchText(event.target.value);
     searchGames(event.target.value)
       .then((response) => {
         const sortedData = response.sort((a, b) => b.metacritic - a.metacritic);
@@ -60,7 +71,19 @@ export const SearchBar = () => {
           })}
         </ul>
       </div>
-      <button className={style.button}>Search</button>
+      <button onClick={handleSearch} className={style.button}>
+        Search
+      </button>
     </div>
   );
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeVideogames: (videogames) => {
+      dispatch(changeVideogames(videogames));
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(SearchBar);

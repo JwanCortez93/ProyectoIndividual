@@ -4,20 +4,22 @@ import { Page1 } from "./Page1";
 import { Page2 } from "./Page2";
 import { Page3 } from "./Page3";
 import { Page4 } from "./Page4";
+import axios from "axios";
 
-export const Form = ({ genres, platforms, stores }) => {
+export const Form = ({ genre, platforms, stores }) => {
   const [page, setPage] = useState(1);
   const [form, setForm] = useState({
     name: "",
-    genres: [],
+    genre: [],
     image: "",
     description: "",
     releaseDate: "",
     platforms: [],
     rating: 0,
     stores: [],
-    tags: "",
+    tags: [],
     esrb_rating: "",
+    additional_images: [],
   });
 
   const previousPage = () => {
@@ -32,7 +34,7 @@ export const Form = ({ genres, platforms, stores }) => {
 
   const handleChange = (event) => {
     if (
-      event.target.name === "genres" ||
+      event.target.name === "genre" ||
       event.target.name === "platforms" ||
       event.target.name === "stores"
     ) {
@@ -48,9 +50,10 @@ export const Form = ({ genres, platforms, stores }) => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(form);
+
+    await axios.post("http://localhost:3001/videogames", form);
   };
 
   const checkCheckBox = (name, info) => {
@@ -64,7 +67,7 @@ export const Form = ({ genres, platforms, stores }) => {
           <Page1
             check={checkCheckBox}
             formName={form.name}
-            genres={genres}
+            genre={genre}
             image={form.image}
             handleChange={handleChange}
             nextPage={nextPage}

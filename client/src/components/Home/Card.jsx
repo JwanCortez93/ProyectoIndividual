@@ -1,10 +1,13 @@
 import style from "../../Modules/Card.module.css";
 
-export const Card = ({ name, image, genres }) => {
+export const Card = ({ name, image, genre }) => {
   const genresArray = [];
-  genres.forEach((genre) =>
-    genresArray.push({ id: genre.id, name: genre.name })
-  );
+  console.log(genre);
+  if (genre.length > 0) {
+    genre.forEach((genre) =>
+      genresArray.push({ id: genre.id, name: genre.name })
+    );
+  }
   return (
     <div className={style.container}>
       <h1 className={style.name}>{name}</h1>

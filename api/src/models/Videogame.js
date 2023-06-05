@@ -22,9 +22,11 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      platform: {
-        type: DataTypes.STRING,
-      },
+
+      // platforms: {
+      //   type: DataTypes.ARRAY(DataTypes.STRING),
+      // },
+
       image: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -38,7 +40,23 @@ module.exports = (sequelize) => {
       },
 
       genre: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+      },
+
+      // stores: {
+      //   type: DataTypes.ARRAY(DataTypes.STRING),
+      // },
+
+      esrb_rating: {
         type: DataTypes.STRING,
+      },
+
+      tags: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+      },
+
+      additional_images: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
       },
     },
     { timestamps: false }

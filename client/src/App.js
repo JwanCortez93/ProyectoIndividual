@@ -9,6 +9,7 @@ import { Detail } from "./components/Detail/Detail";
 import { Error } from "./components/Error/Error";
 import { About } from "./components/About/About";
 import Favorites from "./components/Favorites/Favorites";
+import { Redirect } from "./components/Redirect";
 import { Create } from "./components/Create/Create";
 import { connect } from "react-redux";
 import {
@@ -29,15 +30,13 @@ function App({
   platforms,
 }) {
   const location = useLocation();
+
   const navigate = useNavigate();
   const [accessGeneral, setAccess] = useState(false);
-  const [visitHistory, setVisitHistory] = useState({
-    home: 0,
-    detail: 0,
-    about: 0,
-    favorites: 0,
-    create: 0,
-  });
+
+  useEffect(() => {
+    !accessGeneral && navigate("/");
+  }, [accessGeneral, navigate]);
 
   useEffect(async () => {
     const checkGenres = await axios.get("http://localhost:3001/genres/db");
@@ -56,15 +55,22 @@ function App({
     await axios
       .post(`http://localhost:3001/users/`, userData)
       .then(({ data }) => {
-        const { access } = data;
-        setAccess(access);
-        accessGeneral && navigate("/home");
+        setAccess(data);
       });
   }
 
+  useEffect(() => {
+    if (accessGeneral) {
+      navigate("/home");
+    }
+  }, [accessGeneral]);
+
   return (
     <div className="App">
-      {location.pathname !== "/" ? <Nav /> : null}
+      {location.pathname !== "/" && location.pathname !== "/error" ? (
+        <Nav />
+      ) : null}
+
       <Routes>
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/about" element={<About />} />
@@ -79,15 +85,19 @@ function App({
             />
           }
         />
-        <Route path="/" element={<Landing login={login} />} />
+        <Route
+          path="/"
+          element={<Landing setAccess={setAccess} login={login} />}
+        />
         <Route path="/favorites" element={<Favorites />} />
         <Route
           path="/create"
           element={
-            <Create genres={genres} platforms={platforms} stores={stores} />
+            <Create genre={genres} platforms={platforms} stores={stores} />
           }
         />
-        <Route path="*" element={<Error />} />
+        <Route path="/error" element={<Error />} />
+        <Route path="*" element={<Redirect />} />
       </Routes>
     </div>
   );

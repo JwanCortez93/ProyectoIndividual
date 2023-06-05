@@ -9,6 +9,8 @@ import {
   GET_STORES,
   REMOVE_FAV,
   FILTER_VIDEOGAMES,
+  ORDER_VIDEOGAMES,
+  CHANGE_VIDEOGAMES,
 } from "./action-types";
 
 const initialState = {
@@ -70,15 +72,29 @@ const reducer = (state = initialState, action) => {
         stores: action.payload,
       };
 
+    case ORDER_VIDEOGAMES:
+      const { orderBy, ascendantOrder } = action.payload;
+      if (orderBy === "") return { ...state };
+      const orderVideogames = state.allVideogames.sort((a, b) => {
+        return ascendantOrder
+          ? a[orderBy] - b[orderBy]
+          : b[orderBy] - a[orderBy];
+      });
+      return {
+        ...state,
+        videogames: orderVideogames,
+        allVideogames: orderVideogames,
+      };
+
     case FILTER_VIDEOGAMES:
-      const { orderBy, genre, platform } = action.payload;
+      const { genre, platform } = action.payload;
       if (genre === "" && platform === "") {
         return {
           ...state,
           videogames: state.allVideogames,
         };
       } else {
-        const filteredGames = state.allVideogames.filter((game) => {
+        const filteredGames = state.allVideogames.filter((game) => { 
           if (genre === "") {
             return game.platforms.some((obj) => obj.platform.name === platform);
           }
@@ -90,12 +106,17 @@ const reducer = (state = initialState, action) => {
             game.platforms.some((obj) => obj.platform.name === platform)
           );
         });
-        console.log(filteredGames);
+
         return {
           ...state,
           videogames: [...filteredGames],
         };
       }
+    case CHANGE_VIDEOGAMES:
+      return {
+        ...state,
+        videogames: [...action.payload],
+      };
     default:
       return { ...state };
   }

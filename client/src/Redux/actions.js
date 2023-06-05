@@ -8,6 +8,8 @@ import {
   GET_STORES,
   GET_VIDEOGAMES,
   REMOVE_FAV,
+  ORDER_VIDEOGAMES,
+  CHANGE_VIDEOGAMES,
 } from "./action-types";
 import axios from "axios";
 
@@ -79,6 +81,14 @@ export const getStores = () => {
   };
 };
 
+export const orderVideogames = (parameters) => {
+  return { type: ORDER_VIDEOGAMES, payload: parameters };
+};
+
 export const filterVideogames = (parameters) => {
   return { type: FILTER_VIDEOGAMES, payload: parameters };
+};
+
+export const changeVideogames = (videogames) => {
+  return { type: CHANGE_VIDEOGAMES, payload: videogames };
 };

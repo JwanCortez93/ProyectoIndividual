@@ -1,6 +1,8 @@
 //!//-ARREGLAR LA FORM PARA QUE NO SE BORREN COMO MOSTRÓ GUIDO "(name=form.name)"
 
-//! EL RATING NECESITA FONDO, SE PIERDE EN ALGUNAS IMÁGENES
+//! EN EL FILTRADO FALTA FILTRAR POR BASE DE DATOS Y API
+
+/////! EL RATING NECESITA FONDO, SE PIERDE EN ALGUNAS IMÁGENES
 
 //! IGNORAR DUPLICADOS EN EL useEffect DE APP.js (usando el store)
 
@@ -8,11 +10,11 @@
 
 //! EL LINK DEL SEARCHBAR NO VA A LA PÁGINA SI YA SE ENTRÓ ANTES
 
-//! FALTA QUE APAREZCA LA VALIDACIÓN DE AMBOS LOGINS EN EL FRONT
+/////! FALTA QUE APAREZCA LA VALIDACIÓN DE AMBOS LOGINS EN EL FRONT
 
-//-EL FORM ESTÁ ANDANDO MAL, NO GUARDA EN EL STATE. REVISAR (Creo que está arreglado)
+////-EL FORM ESTÁ ANDANDO MAL, NO GUARDA EN EL STATE. REVISAR (Creo que está arreglado)
 
-// ! FALTAN HACER RELACIONES EN LA DB
+//* FALTAN HACER RELACIONES EN LA DB (Creo que están hechas todas, revisar)
 
 //!Ordenar alfabéticamente las opciones de los selects en Home
 
@@ -50,8 +52,8 @@
 
 ///// todo: Hacer el LOGO
 
-// todo: Cuando no hay Nav, hay un espacio arriba que no sé de donde sale (Un margin tal vez?)
-//* (Probablemente no tenga nunca una ruta sin Nav, así que este problema bajó de prioridad)
+///// todo: Cuando no hay Nav, hay un espacio arriba que no sé de donde sale (Un margin tal vez?)
+/////* (Probablemente no tenga nunca una ruta sin Nav, así que este problema bajó de prioridad)
 
 // todo: Llenar cada página de mensajes explicativos
 

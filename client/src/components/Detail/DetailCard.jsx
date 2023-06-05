@@ -76,7 +76,6 @@ const DetailCard = ({
 
   return (
     <div style={{ height: "100%" }}>
-      <Menu />
       <div className={style.DetailCard}>
         <img className={style.image} src={image} alt={name} />
         <h2 className={style.rating}>⭐{rating}</h2>

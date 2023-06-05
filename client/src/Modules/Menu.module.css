@@ -1,0 +1,10 @@
+.container{
+    display:flex;
+    justify-content: space-around;
+}
+
+.flechas {
+    
+    display: flex;
+    justify-content:flex-end;
+}
