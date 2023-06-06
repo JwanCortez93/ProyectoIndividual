@@ -4,7 +4,15 @@ import { connect } from "react-redux";
 import { filterVideogames, orderVideogames } from "../../Redux/actions";
 
 const Menu = (
-  { genres, platforms, page, filterVideogames, orderVideogames, handlePage },
+  {
+    genres,
+    platforms,
+    page,
+    filterVideogames,
+    orderVideogames,
+    handlePage,
+    setPage,
+  },
   state
 ) => {
   const [parameters, setParameters] = useState({
@@ -18,6 +26,7 @@ const Menu = (
   useEffect(() => {
     orderVideogames(parameters);
     filterVideogames(parameters);
+    setPage(0);
   }, [parameters]);
 
   const handleOrder = () => {
@@ -32,6 +41,7 @@ const Menu = (
       ...parameters,
       [event.target.name]: event.target.value,
     });
+    console.log(parameters);
   };
 
   const orderedGenres = genres.sort((a, b) => {

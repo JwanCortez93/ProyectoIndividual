@@ -24,7 +24,7 @@
     
     height:16em;
     width:20em;
-    filter:opacity(50%);
+    filter:opacity(70%);
     object-fit: cover;
     transition:all 0.5s
     
@@ -44,7 +44,7 @@
     
     border-radius: 0.3em;
     padding: 0.5em 0.5em;
-    filter:opacity(50%)
+    filter:opacity(70%)
 }
 
 .genresContainer {
@@ -66,7 +66,7 @@
     padding:0.1em;
     border-radius: 0.3em;
     z-index: 5;
-    filter: opacity(50%);
+    filter: opacity(70%);
     transition:all 0.5s
 }
 
@@ -83,7 +83,7 @@
     
     border-radius: 0.3em;
     padding: 0.5em 0.5em;
-    filter:opacity(50%)
+    filter:opacity(70%)
 }
 
 .container:hover .img{

@@ -74,16 +74,31 @@ const reducer = (state = initialState, action) => {
 
     case ORDER_VIDEOGAMES:
       const { orderBy, ascendantOrder } = action.payload;
+      console.log(orderBy, ascendantOrder, state.allVideogames);
       if (orderBy === "") return { ...state };
       const orderVideogames = state.allVideogames.sort((a, b) => {
-        return ascendantOrder
-          ? a[orderBy] - b[orderBy]
-          : b[orderBy] - a[orderBy];
+        if (orderBy === "name") {
+          if (ascendantOrder) {
+            return a.name.localeCompare(b.name);
+          }
+          return b.name.localeCompare(a.name);
+        }
+        if (orderBy === "released") {
+          if (ascendantOrder) {
+            return new Date(a.released) - new Date(b.released);
+          }
+          return new Date(b.released) - new Date(a.released);
+        }
+        if (ascendantOrder) {
+          return a[orderBy] - b[orderBy];
+        }
+        return b[orderBy] - a[orderBy];
       });
+      console.log(orderVideogames);
       return {
         ...state,
-        videogames: orderVideogames,
-        allVideogames: orderVideogames,
+        videogames: [...orderVideogames],
+        allVideogames: [...orderVideogames],
       };
 
     case FILTER_VIDEOGAMES:
@@ -94,7 +109,7 @@ const reducer = (state = initialState, action) => {
           videogames: state.allVideogames,
         };
       } else {
-        const filteredGames = state.allVideogames.filter((game) => { 
+        const filteredGames = state.allVideogames.filter((game) => {
           if (genre === "") {
             return game.platforms.some((obj) => obj.platform.name === platform);
           }

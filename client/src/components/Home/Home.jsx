@@ -53,6 +53,7 @@ const Home = ({ addAllFavs, videogames, genres, platforms, stores }) => {
             platforms={platforms}
             stores={stores}
             page={page}
+            setPage={setPage}
             handlePage={handlePage}
           />
         </div>

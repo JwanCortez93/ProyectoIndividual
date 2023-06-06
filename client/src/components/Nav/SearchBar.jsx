@@ -39,8 +39,8 @@ const SearchBar = ({ changeVideogames }) => {
     <div className={style.div}>
       <div>
         <input
-          className={style.inputContainer}
           onChange={handleChange}
+          className={style.input}
           placeholder="Search Game"
           autoComplete="off"
         ></input>
