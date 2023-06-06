@@ -1,6 +1,9 @@
 .div {
+    position:fixed;
+    width:100vi;
     height:13%;
     display:flex;
     justify-content: space-evenly;
     background-color: #121212;
+    z-index: 6;
 }

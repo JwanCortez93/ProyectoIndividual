@@ -1,8 +1,9 @@
 .gridContainer {
     width:100%;
-    background-color: yellow;
+    height:100%;
+    /* background-color: yellow; */
     display: grid;
     
     grid-template-columns: repeat(3, 2fr); 
-    grid-gap: 2em;
+    grid-gap: 3em;
 }

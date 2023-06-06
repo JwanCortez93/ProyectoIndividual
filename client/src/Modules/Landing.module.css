@@ -57,10 +57,10 @@
 .additionalText {
     
     padding:0;
-    color:rgb(242, 197, 35);
+    color:rgba(242, 183, 35, 0.713);
     font-family: 'Courier New', Courier, monospace;
     text-shadow: none;
-    width:30em;
+    width:40em;
     font-size: 1.3em;
     
     max-height: 0;
@@ -116,6 +116,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    animation: slide-in-bck-center 1.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
     
   }
 

@@ -4,6 +4,7 @@ import { Page1 } from "./Page1";
 import { Page2 } from "./Page2";
 import { Page3 } from "./Page3";
 import { Page4 } from "./Page4";
+import { Page5 } from "./Page5";
 import axios from "axios";
 
 export const Form = ({ genres, platforms, stores }) => {
@@ -24,12 +25,10 @@ export const Form = ({ genres, platforms, stores }) => {
 
   const previousPage = () => {
     setPage(page - 1);
-    console.log(form);
   };
 
   const nextPage = () => {
     setPage(page + 1);
-    console.log(form);
   };
 
   const handleChange = (event) => {
@@ -84,15 +83,23 @@ export const Form = ({ genres, platforms, stores }) => {
           <Page3
             check={checkCheckBox}
             releaseDate={form.releaseDate}
-            rating={form.rating}
             platforms={platforms}
-            stores={stores}
             handleChange={handleChange}
             nextPage={nextPage}
             previousPage={previousPage}
           />
         ) : null}
         {page === 4 ? (
+          <Page5
+            check={checkCheckBox}
+            rating={form.rating}
+            stores={stores}
+            nextPage={nextPage}
+            handleChange={handleChange}
+            previousPage={previousPage}
+          />
+        ) : null}
+        {page === 5 ? (
           <Page4 handleChange={handleChange} previousPage={previousPage} />
         ) : null}
       </form>

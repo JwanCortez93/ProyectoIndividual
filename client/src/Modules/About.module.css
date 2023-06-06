@@ -1,3 +1,31 @@
-.div {
-    background-color: blue;
+.container {
+    padding-top: 10%;
+    height:70%;
+    
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.img {
+    
+    height: 100%;
+    filter:sepia()
+}
+
+.info {
+    background-color: rgba(255, 0, 0, 0.368);
+    outline: inset 0.3em black  ;
+    width:40%;
+    height:100%;
+}
+
+.info h1{
+    font-family:Arial, Helvetica, sans-serif ;
+}
+
+.info h3 {
+    margin:1em;
+    font-size: 1.4em;
+    font-family: 'Times New Roman', Times, serif;
 }

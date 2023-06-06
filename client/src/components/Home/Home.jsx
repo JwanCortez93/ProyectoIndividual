@@ -37,28 +37,31 @@ const Home = ({ addAllFavs, videogames, genres, platforms, stores }) => {
   };
 
   return (
-    <div className={style.container}>
-      <div className={style.SubNav}>
-        <SubNav />
-      </div>
-      <div className={style.Poster}>
-        <Poster />
-      </div>
-      <div className={style.Menu}>
-        <Menu
-          videogames={videogames}
-          genres={genres}
-          platforms={platforms}
-          stores={stores}
-          page={page}
-          handlePage={handlePage}
-        />
-      </div>
-      <div className={style.Cards}>
-        <Cards videogames={videogames.slice(page * 15, (page + 1) * 15)} />
-      </div>
-      <div className={style.Extra}>
-        <Extra />
+    <div>
+      <div className={style.background}></div>
+      <div className={style.container}>
+        <div className={style.SubNav}>
+          <SubNav />
+        </div>
+        <div className={style.Poster}>
+          <Poster />
+        </div>
+        <div className={style.Menu}>
+          <Menu
+            videogames={videogames}
+            genres={genres}
+            platforms={platforms}
+            stores={stores}
+            page={page}
+            handlePage={handlePage}
+          />
+        </div>
+        <div className={style.Cards}>
+          <Cards videogames={videogames.slice(page * 15, (page + 1) * 15)} />
+        </div>
+        <div className={style.Extra}>
+          <Extra />
+        </div>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ const Menu = (
     orderBy: "",
     genre: "",
     platform: "",
+    source: "",
     ascendantOrder: true,
   });
 
@@ -53,8 +54,6 @@ const Menu = (
     return 0;
   });
 
-  console.log(orderedGenres);
-
   return (
     <div className={style.container}>
       <div className={style.flechas}>
@@ -73,18 +72,20 @@ const Menu = (
           )}
         </div>
       </div>
-      <div>
-        <select name="orderBy" onChange={handleChange}>
-          <option hidden disabled selected>
-            Order by:
-          </option>
-          <option value="name">Name</option>
-          <option value="rating">Rating</option>
-          <option value="released">Release Date</option>
-        </select>
-        <button onClick={handleOrder}>
-          {parameters.ascendantOrder ? "⬆️" : "⬇️"}
-        </button>
+      <div className={style.buttons}>
+        <div>
+          <select name="orderBy" onChange={handleChange}>
+            <option hidden disabled selected>
+              Order by:
+            </option>
+            <option value="name">Name</option>
+            <option value="rating">Rating</option>
+            <option value="released">Release Date</option>
+          </select>
+          <button onClick={handleOrder}>
+            {parameters.ascendantOrder ? "🔼" : "🔽"}
+          </button>
+        </div>
         <select name="platform" onChange={handleChange}>
           <option hidden disabled selected>
             Platforms
@@ -102,6 +103,14 @@ const Menu = (
           {orderedGenres.map((genre) => {
             return <option key={genre.id}>{genre.name}</option>;
           })}
+        </select>
+        <select name="source" onChange={handleChange}>
+          <option hidden disabled selected>
+            Source
+          </option>
+          <option>Api</option>
+          <option>Database</option>
+          <option value="">Both </option>
         </select>
       </div>
       <div className={style.flechas}>
@@ -136,7 +145,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-  return state;
+  return { ...state };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

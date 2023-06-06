@@ -73,7 +73,7 @@ function App({
       {location.pathname !== "/" && location.pathname !== "/error" ? (
         <Nav />
       ) : null}
-
+      <div id="background"></div>
       <Routes>
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/about" element={<About />} />

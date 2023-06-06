@@ -4,13 +4,13 @@ export const Page3 = ({
   check,
   platforms,
   stores,
-  rating,
+
   releaseDate,
   handleChange,
   nextPage,
   previousPage,
 }) => {
-  if (!platforms || !stores) {
+  if (!platforms) {
     return (
       <div
         style={{
@@ -29,17 +29,27 @@ export const Page3 = ({
           justifyContent: "center",
         }}
       >
-        <label className={style.label}>Release Date: </label>
-        <input
-          className={style.inputText}
-          value={releaseDate}
-          type="date"
-          name="releaseDate"
-          onChange={handleChange}
-        ></input>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <label className={style.label}>When did your game come out? </label>
+        </div>
+        <div>
+          <input
+            className={style.inputText}
+            value={releaseDate}
+            type="date"
+            name="releaseDate"
+            onChange={handleChange}
+          ></input>
+        </div>
       </div>
 
-      <label className={style.label}>Platforms: </label>
+      <label className={style.label}>Where can we play your game? </label>
       <div className={style.genres}>
         {platforms.map((platform) => {
           return (
@@ -56,43 +66,19 @@ export const Page3 = ({
           );
         })}
       </div>
-      <div className="ratingContainer">
-        <label className={style.label}>Rating: </label>
-        <input
-          value={rating}
-          type="number"
-          name="rating"
-          onChange={handleChange}
-        ></input>
-      </div>
-      <div>
-        <label className={style.label}>Stores: </label>
-        <div className={style.genres}>
-          {stores.map((store) => {
-            return (
-              <div className={style.genre} key={store.id}>
-                <label className={style.label}>{store.name}</label>
-                <input
-                  defaultChecked={check(store.name, "stores")}
-                  type="checkbox"
-                  name="stores"
-                  value={store.name}
-                  onChange={handleChange}
-                ></input>
-              </div>
-            );
-          })}
+
+      <div className={style.buttons}>
+        <div>
+          <button className={style.button} type="button" onClick={previousPage}>
+            Previous
+          </button>
+        </div>
+        <div>
+          <button className={style.button} type="button" onClick={nextPage}>
+            Next
+          </button>
         </div>
       </div>
-      <div className={style.buttons}>
-        <button type="button" onClick={previousPage}>
-          Previous
-        </button>
-        <button type="button" onClick={nextPage}>
-          Next
-        </button>
-      </div>
-      <div></div>
     </div>
   );
 };

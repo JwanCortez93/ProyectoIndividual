@@ -1,6 +1,6 @@
 import style from "../../Modules/Card.module.css";
 
-export const Card = ({ name, image, genres }) => {
+export const Card = ({ name, image, genres, rating }) => {
   const genresArray = [];
 
   if (genres.length > 0) {
@@ -10,10 +10,11 @@ export const Card = ({ name, image, genres }) => {
   }
   return (
     <div className={style.container}>
+      <h3 className={style.rating}>⭐{rating}</h3>
       <h1 className={style.name}>{name}</h1>
       <img className={style.img} src={image} alt={name} />
       <div className={style.genresContainer}>
-        {genresArray.map((elem) => {
+        {genresArray.slice(0, 3).map((elem) => {
           return (
             <h3 className={style.genres} key={elem.id}>
               {elem.name}

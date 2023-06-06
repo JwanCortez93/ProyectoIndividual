@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { validateEmail, validatePasswordCreated } from "./UserValidation";
-import style from "../../Modules/Landing.module.css";
+import style from "../../Modules/NewUserForm.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -56,18 +56,47 @@ export const NewUserForm = ({ setAccess }) => {
   }, [checkSubmit]);
 
   return (
-    <form className={style.formUser}>
-      <label>Email: </label>
-      <input onChange={handleChange} type="email" name="email" />
-      <label>Password: </label>
-      <input onChange={handleChange} type="password" name="password" />
-      <label>Rewrite your password: </label>
-      <input onChange={handleChange} type="password" name="checkPassword" />
-      {errors.userError ? <p>{errors.userError}</p> : null}
-      {errors.passwordError ? <p>{errors.passwordError}</p> : null}
-      <button onClick={handleSubmit} type="submit">
-        Submit
-      </button>
-    </form>
+    <div style={{ backgroundColor: "blue" }}>
+      <form className={style.container}>
+        <div>
+          <label className={style.label}>Email: </label>
+          <input
+            className={style.input}
+            onChange={handleChange}
+            type="email"
+            name="email"
+          />
+        </div>
+        <div>
+          <label className={style.label}>Password: </label>
+          <input
+            className={style.input}
+            onChange={handleChange}
+            type="password"
+            name="password"
+          />
+        </div>
+        <div>
+          <label className={style.label}>Rewrite your password: </label>
+          <input
+            className={style.input}
+            onChange={handleChange}
+            type="password"
+            name="checkPassword"
+          />
+        </div>
+        <div>
+          {errors.userError ? (
+            <p className={style.errors}>{errors.userError}</p>
+          ) : null}
+          {errors.passwordError ? (
+            <p className={style.errors}>{errors.passwordError}</p>
+          ) : null}
+        </div>
+        <button className={style.button} onClick={handleSubmit} type="submit">
+          Sign Up
+        </button>
+      </form>
+    </div>
   );
 };

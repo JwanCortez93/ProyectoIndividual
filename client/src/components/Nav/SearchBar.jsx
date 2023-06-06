@@ -37,38 +37,40 @@ const SearchBar = ({ changeVideogames }) => {
 
   return (
     <div className={style.div}>
-      <div className={style.inputContainer}>
+      <div>
         <input
+          className={style.inputContainer}
           onChange={handleChange}
-          className={style.input}
           placeholder="Search Game"
           autoComplete="off"
         ></input>
-        <ul className={style.predictions}>
-          {predictions.map((pred, index) => {
-            return (
-              <Link
-                onClick={() => setPredictions([])}
-                style={{ textDecoration: "none", color: "black" }}
-                to={`/detail/${pred.id}`}
-              >
-                <li key={index} className={style.items}>
-                  <img
-                    style={{
-                      marginRight: "2em",
-                      width: "4rem",
-                      height: "5rem",
-                      objectFit: "cover",
-                    }}
-                    src={pred.background_image}
-                    alt={pred.name}
-                  />
-                  <h4>{pred.name}</h4>
-                </li>
-              </Link>
-            );
-          })}
-        </ul>
+        <div className={style.predictions}>
+          <ul>
+            {predictions.map((pred, index) => {
+              return (
+                <Link
+                  onClick={() => setPredictions([])}
+                  style={{ textDecoration: "none", color: "black" }}
+                  to={`/detail/${pred.id}`}
+                >
+                  <li key={index} className={style.items}>
+                    <img
+                      style={{
+                        marginRight: "2em",
+                        width: "4rem",
+                        height: "5rem",
+                        objectFit: "cover",
+                      }}
+                      src={pred.background_image}
+                      alt={pred.name}
+                    />
+                    <h4>{pred.name}</h4>
+                  </li>
+                </Link>
+              );
+            })}
+          </ul>
+        </div>
       </div>
       <button onClick={handleSearch} className={style.button}>
         Search

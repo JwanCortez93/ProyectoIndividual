@@ -48,9 +48,6 @@ const DetailCard = ({
       setIsFav(true);
       addFav(name);
     }
-    
-
-    
   };
 
   const genresArray = [];
@@ -76,9 +73,9 @@ const DetailCard = ({
 
   return (
     <div style={{ height: "100%" }}>
+      <h2 className={style.rating}>⭐{rating}</h2>
       <div className={style.DetailCard}>
         <img className={style.image} src={image} alt={name} />
-        <h2 className={style.rating}>⭐{rating}</h2>
         <button onClick={handleFavorite} className={style.button}>
           {isFav ? "Remove from my list" : "Add to my List"}
         </button>

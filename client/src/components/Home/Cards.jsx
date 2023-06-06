@@ -18,6 +18,7 @@ export const Cards = ({ videogames }) => {
                 name={videogame.name}
                 image={videogame.background_image}
                 genres={videogame.genres}
+                rating={videogame.rating}
               />
             </Link>
           </div>

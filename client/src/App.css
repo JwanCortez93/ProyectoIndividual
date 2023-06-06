@@ -1,9 +1,21 @@
 .App {
+  
   margin:0;
   padding:0;
   height:100vh;
-  background: linear-gradient(41deg,#c00000 0%, #af6262 40%, #3d0000 73%, #8b1212 75%, #3d0000 77%, #000000 100%);
+  
   text-align: center;
+}
+
+#background {
+  
+  position:fixed;
+  margin:0;
+  padding:0;
+  height:100vh;
+  width:100vi;
+  z-index: -5;
+  background: linear-gradient(41deg,#c00000 0%, #af6262 40%, #3d0000 73%, #8b1212 75%, #3d0000 77%, #000000 100%);
 }
 
 .App-logo {
