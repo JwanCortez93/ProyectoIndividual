@@ -17,7 +17,7 @@ export const Cards = ({ videogames }) => {
               <Card
                 name={videogame.name}
                 image={videogame.background_image}
-                genre={videogame.genres}
+                genres={videogame.genres}
               />
             </Link>
           </div>

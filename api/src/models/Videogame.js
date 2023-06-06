@@ -39,9 +39,9 @@ module.exports = (sequelize) => {
         type: DataTypes.FLOAT,
       },
 
-      genre: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-      },
+      // genre: {
+      //   type: DataTypes.ARRAY(DataTypes.STRING),
+      // },
 
       // stores: {
       //   type: DataTypes.ARRAY(DataTypes.STRING),

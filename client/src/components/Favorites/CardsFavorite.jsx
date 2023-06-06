@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export const CardsFavorite = ({ myFavorites }) => {
-  console.log(myFavorites);
+  
   return (
     <div className={style.gridContainer}>
       {myFavorites.map((videogame) => {

@@ -16,7 +16,7 @@
 
 //* FALTAN HACER RELACIONES EN LA DB (Creo que están hechas todas, revisar)
 
-//!Ordenar alfabéticamente las opciones de los selects en Home
+/////!Ordenar alfabéticamente las opciones de los selects en Menu
 
 // ! LA BASE DE DATOS NO TIENE LA CANTIDAD DE PROPIEDADES QUE DEBE TENER, ARREGLAR ANTES DE HACER EL .POST
 
@@ -40,7 +40,7 @@
 
 // todo: Favorites
 
-// todo: Error Page
+///// todo: Error Page
 
 // todo: About Page
 

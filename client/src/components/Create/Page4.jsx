@@ -1,10 +1,28 @@
-import style from "../../Modules/Page4.module.css";
+import style from "../../Modules/Page1.module.css";
+import { useState } from "react";
 
 export const Page4 = ({ handleChange, previousPage }) => {
+  const [tags, setTags] = useState([]);
+  const [tagsText, setTagsText] = useState("");
+
+  const handleTags = (event) => {
+    event.preventDefault();
+    setTagsText(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setTags([...tags, tagsText]);
+  };
+
   return (
     <div name="page4" className={style.container}>
-      <label>Tags: </label>
-      <input type="text" onChange={handleChange}></input>
+      <form onSubmit={handleSubmit}>
+        <label>Tags: </label>
+        <input type="text" onChange={handleTags}></input>
+        <button type="submit">Add</button>
+        <div></div>
+      </form>
       <label>ESRB Rating: </label>
       <select name="esrb_rating" onChange={handleChange}>
         <option>Everyone</option>

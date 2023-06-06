@@ -111,8 +111,14 @@ export const Landing = ({ login, setAccess }) => {
                 Log In
               </button>
             </form>
-            <label>No tenés cuenta?</label>
-            <button onClick={handleRegister}>Regístrate!</button>
+            <label
+              style={{ fontFamily: "Georgia, 'Times New Roman', Times, serif" }}
+            >
+              Don't have an account?
+            </label>
+            <button className={style.registerButton} onClick={handleRegister}>
+              Register!
+            </button>
           </div>
         </div>
         <div className={check ? style.createUser2 : style.createUser1}>

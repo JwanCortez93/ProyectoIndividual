@@ -43,14 +43,16 @@ export const NewUserForm = ({ setAccess }) => {
     setCheckSubmit(checkSubmit + 1);
   };
 
-  useEffect(async () => {
-    if (!errors.userError && !errors.passwordError) {
-      const user = await createUser(newUser);
-      console.log(user);
+  useEffect(() => {
+    async function fetchData() {
+      if (!errors.userError && !errors.passwordError) {
+        const user = await createUser(newUser);
 
-      setAccess(true);
-      navigate("/home");
+        setAccess(true);
+        navigate("/home");
+      }
     }
+    fetchData();
   }, [checkSubmit]);
 
   return (

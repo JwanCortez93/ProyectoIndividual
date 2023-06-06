@@ -110,12 +110,13 @@
   .loginDiv{
     z-index: 2;
     /* background-color: blue;  */
-    font-size: 6em;
-    
+    font-size: 3em;
+    margin-left: 7em;
     width:20%;
     display:flex;
     justify-content: center;
     align-items: center;
+    
   }
 
   .form_button{
@@ -146,10 +147,26 @@ text-shadow:0px 1px 0px #810e05;
     
   }
 
+  .inputText{
+    border-radius: 0.5em;
+    margin:0.6em;
+    height:2em;
+    background-color:#c75951;
+    color:black;
+    
+  }
 
+
+
+  .inputText::placeholder{
+    color:rgb(108, 2, 2)
+  }
   
   .button{
-    font-size: 0.7em;
+    font-size: 1em;
+    display:flex;
+    align-items: center;
+    justify-content: center;
     
         box-shadow: 3px 4px 0px 0px #8a2a21;
         background:linear-gradient(to bottom, #9a2116 5%, #b62c22 100%);
@@ -157,14 +174,16 @@ text-shadow:0px 1px 0px #810e05;
         margin:0.2em;
         border-radius:18px;
         border:1px solid #d02718;
-        display:inline-block;
+        
         cursor:pointer;
         color:#000000;
-        font-family:Arial;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-weight: 700;
         transition: all 0.5s;
-        padding:7px 25px;
-        text-decoration:none;
+        padding:0.8em 3em;
+        
         text-shadow:0px 1px 0px #810e05;
+        height:3em;
     }
     .button:hover {
         background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
@@ -202,4 +221,24 @@ text-shadow:0px 1px 0px #810e05;
     justify-content: center;
     align-items: center;
     
+}
+
+.registerButton {
+  border-radius: 1em;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  
+  background-color: #d11b0e;
+  color:rgb(255, 255, 255);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.registerButton:hover {
+  background-color: #ff9f9f;
+  color:black
 }

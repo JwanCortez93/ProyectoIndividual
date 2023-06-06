@@ -7,7 +7,7 @@ const {
 const getFavoriteHandler = async (req, res) => {
   try {
     const favorites = await getFavorites();
-    fil;
+
     res.status(200).json(favorites);
   } catch (error) {
     res.status(400).json({ error: error.message });

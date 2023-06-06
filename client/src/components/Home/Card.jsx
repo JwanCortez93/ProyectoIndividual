@@ -1,11 +1,11 @@
 import style from "../../Modules/Card.module.css";
 
-export const Card = ({ name, image, genre }) => {
+export const Card = ({ name, image, genres }) => {
   const genresArray = [];
-  console.log(genre);
-  if (genre.length > 0) {
-    genre.forEach((genre) =>
-      genresArray.push({ id: genre.id, name: genre.name })
+
+  if (genres.length > 0) {
+    genres.forEach((genres) =>
+      genresArray.push({ id: genres.id, name: genres.name })
     );
   }
   return (
@@ -15,7 +15,7 @@ export const Card = ({ name, image, genre }) => {
       <div className={style.genresContainer}>
         {genresArray.map((elem) => {
           return (
-            <h3 className={style.genre} key={elem.id}>
+            <h3 className={style.genres} key={elem.id}>
               {elem.name}
             </h3>
           );

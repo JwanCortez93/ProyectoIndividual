@@ -36,19 +36,22 @@ function App({
 
   useEffect(() => {
     !accessGeneral && navigate("/");
-  }, [accessGeneral, navigate]);
+  }, [accessGeneral]);
 
-  useEffect(async () => {
-    const checkGenres = await axios.get("http://localhost:3001/genres/db");
-    if (checkGenres.data.length === 0) {
-      await axios.get(`http://localhost:3001/genres`);
-      await axios.get(`http://localhost:3001/stores`);
-      await axios.get(`http://localhost:3001/platforms`);
+  useEffect(() => {
+    async function fetchData() {
+      const checkGenres = await axios.get("http://localhost:3001/genres/db");
+      if (checkGenres.data.length === 0) {
+        await axios.get(`http://localhost:3001/genres`);
+        await axios.get(`http://localhost:3001/stores`);
+        await axios.get(`http://localhost:3001/platforms`);
+      }
+      getGenres();
+      getPlatforms();
+      getStores();
+      getVideogames();
     }
-    getGenres();
-    getPlatforms();
-    getStores();
-    getVideogames();
+    fetchData();
   }, []);
 
   async function login(userData) {
@@ -93,7 +96,7 @@ function App({
         <Route
           path="/create"
           element={
-            <Create genre={genres} platforms={platforms} stores={stores} />
+            <Create genres={genres} platforms={platforms} stores={stores} />
           }
         />
         <Route path="/error" element={<Error />} />

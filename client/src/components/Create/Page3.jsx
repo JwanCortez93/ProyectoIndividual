@@ -1,4 +1,4 @@
-import style from "../../Modules/Page3.module.css";
+import style from "../../Modules/Page1.module.css";
 
 export const Page3 = ({
   check,
@@ -22,20 +22,29 @@ export const Page3 = ({
   }
   return (
     <div name="page3" className={style.container}>
-      <label>Release Date: </label>
-      <input
-        value={releaseDate}
-        type="date"
-        name="releaseDate"
-        onChange={handleChange}
-      ></input>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <label className={style.label}>Release Date: </label>
+        <input
+          className={style.inputText}
+          value={releaseDate}
+          type="date"
+          name="releaseDate"
+          onChange={handleChange}
+        ></input>
+      </div>
 
-      <label>Platforms: </label>
-      <div className="platformsContainer">
+      <label className={style.label}>Platforms: </label>
+      <div className={style.genres}>
         {platforms.map((platform) => {
           return (
-            <div>
-              <label>{platform.name}</label>
+            <div className={style.genre} key={platform.id}>
+              <label className={style.label}>{platform.name}</label>
               <input
                 defaultChecked={check(platform.name, "platforms")}
                 type="checkbox"
@@ -48,7 +57,7 @@ export const Page3 = ({
         })}
       </div>
       <div className="ratingContainer">
-        <label>Rating: </label>
+        <label className={style.label}>Rating: </label>
         <input
           value={rating}
           type="number"
@@ -57,12 +66,12 @@ export const Page3 = ({
         ></input>
       </div>
       <div>
-        <label>Stores: </label>
-        <div>
+        <label className={style.label}>Stores: </label>
+        <div className={style.genres}>
           {stores.map((store) => {
             return (
-              <div>
-                <label>{store.name}</label>
+              <div className={style.genre} key={store.id}>
+                <label className={style.label}>{store.name}</label>
                 <input
                   defaultChecked={check(store.name, "stores")}
                   type="checkbox"
@@ -75,12 +84,15 @@ export const Page3 = ({
           })}
         </div>
       </div>
-      <button type="button" onClick={previousPage}>
-        Previous
-      </button>
-      <button type="button" onClick={nextPage}>
-        Next
-      </button>
+      <div className={style.buttons}>
+        <button type="button" onClick={previousPage}>
+          Previous
+        </button>
+        <button type="button" onClick={nextPage}>
+          Next
+        </button>
+      </div>
+      <div></div>
     </div>
   );
 };

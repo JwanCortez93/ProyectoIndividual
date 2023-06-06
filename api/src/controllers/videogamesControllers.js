@@ -17,8 +17,6 @@ const getVideogames = async () => {
 
   const DB_videogames = await Videogame.findAll();
 
-  console.log(DB_videogames);
-
   return [...DB_videogames, ...arrayAPI].slice(0, 105);
 };
 
@@ -51,7 +49,7 @@ const createVideogame = async ({
   image,
   releaseDate,
   rating,
-  genre,
+  genres,
   esrb_rating,
   additional_images,
   tags,
@@ -63,7 +61,7 @@ const createVideogame = async ({
     image,
     releaseDate,
     rating,
-    genre,
+    genres,
     esrb_rating,
     additional_images,
     tags,

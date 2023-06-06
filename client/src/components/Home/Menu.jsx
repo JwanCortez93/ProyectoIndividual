@@ -31,9 +31,29 @@ const Menu = (
       ...parameters,
       [event.target.name]: event.target.value,
     });
-
-    console.log(state, parameters);
   };
+
+  const orderedGenres = genres.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return +1;
+    }
+    return 0;
+  });
+
+  const orderedPlatforms = platforms.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return +1;
+    }
+    return 0;
+  });
+
+  console.log(orderedGenres);
 
   return (
     <div className={style.container}>
@@ -70,7 +90,7 @@ const Menu = (
             Platforms
           </option>
           <option value="">All</option>
-          {platforms.map((platform) => {
+          {orderedPlatforms.map((platform) => {
             return <option key={platform.id}>{platform.name}</option>;
           })}
         </select>
@@ -79,7 +99,7 @@ const Menu = (
             Genres
           </option>
           <option value="">All</option>
-          {genres.map((genre) => {
+          {orderedGenres.map((genre) => {
             return <option key={genre.id}>{genre.name}</option>;
           })}
         </select>

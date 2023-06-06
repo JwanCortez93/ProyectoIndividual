@@ -1,8 +1,9 @@
 .container{
-    background-color: dodgerblue;
+    
     display:flex;
     flex-direction: column;
     width: 100%;
     font-size: 2em;
+    margin: 2em 0em;
     
 }

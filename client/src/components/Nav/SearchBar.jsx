@@ -29,7 +29,6 @@ const SearchBar = ({ changeVideogames }) => {
       .then((response) => {
         const sortedData = response.sort((a, b) => b.metacritic - a.metacritic);
         setPredictions(sortedData.splice(0, 5));
-        console.log(predictions);
       })
       .catch((error) => {
         console.error(error);
@@ -46,14 +45,14 @@ const SearchBar = ({ changeVideogames }) => {
           autoComplete="off"
         ></input>
         <ul className={style.predictions}>
-          {predictions.map((pred) => {
+          {predictions.map((pred, index) => {
             return (
               <Link
                 onClick={() => setPredictions([])}
                 style={{ textDecoration: "none", color: "black" }}
                 to={`/detail/${pred.id}`}
               >
-                <li className={style.items}>
+                <li key={index} className={style.items}>
                   <img
                     style={{
                       marginRight: "2em",

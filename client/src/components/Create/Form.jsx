@@ -6,11 +6,11 @@ import { Page3 } from "./Page3";
 import { Page4 } from "./Page4";
 import axios from "axios";
 
-export const Form = ({ genre, platforms, stores }) => {
+export const Form = ({ genres, platforms, stores }) => {
   const [page, setPage] = useState(1);
   const [form, setForm] = useState({
     name: "",
-    genre: [],
+    genres: [],
     image: "",
     description: "",
     releaseDate: "",
@@ -34,7 +34,7 @@ export const Form = ({ genre, platforms, stores }) => {
 
   const handleChange = (event) => {
     if (
-      event.target.name === "genre" ||
+      event.target.name === "genres" ||
       event.target.name === "platforms" ||
       event.target.name === "stores"
     ) {
@@ -67,7 +67,7 @@ export const Form = ({ genre, platforms, stores }) => {
           <Page1
             check={checkCheckBox}
             formName={form.name}
-            genre={genre}
+            genres={genres}
             image={form.image}
             handleChange={handleChange}
             nextPage={nextPage}

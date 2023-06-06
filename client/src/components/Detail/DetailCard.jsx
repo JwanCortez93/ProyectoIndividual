@@ -48,9 +48,9 @@ const DetailCard = ({
       setIsFav(true);
       addFav(name);
     }
-    console.log(myFavorites);
+    
 
-    console.log(isFav);
+    
   };
 
   const genresArray = [];
