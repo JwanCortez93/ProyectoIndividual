@@ -10,6 +10,7 @@ import {
   REMOVE_FAV,
   ORDER_VIDEOGAMES,
   CHANGE_VIDEOGAMES,
+  RESET_VIDEOGAMES,
 } from "./action-types";
 import axios from "axios";
 
@@ -91,4 +92,8 @@ export const filterVideogames = (parameters) => {
 
 export const changeVideogames = (videogames) => {
   return { type: CHANGE_VIDEOGAMES, payload: videogames };
+};
+
+export const resetVideogames = () => {
+  return { type: RESET_VIDEOGAMES, payload: null };
 };

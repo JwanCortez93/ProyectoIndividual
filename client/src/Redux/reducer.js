@@ -11,6 +11,7 @@ import {
   FILTER_VIDEOGAMES,
   ORDER_VIDEOGAMES,
   CHANGE_VIDEOGAMES,
+  RESET_VIDEOGAMES,
 } from "./action-types";
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
   platforms: [],
   genres: [],
   allVideogames: [],
+  searchedVideogames: [],
   videogames: [],
   myFavorites: [],
 };
@@ -46,12 +48,14 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         videogames: action.payload,
+        searchedVideogames: action.payload,
         allVideogames: action.payload,
       };
     case ADD_VIDEOGAME:
       return {
         ...state,
         videogames: [...action.payload, ...state.videogames],
+        searchedVideogames: [...action.payload, ...state.videogames],
         allVideogames: [...action.payload, ...state.videogames],
       };
     case DELETE_VIDEOGAME:
@@ -74,9 +78,9 @@ const reducer = (state = initialState, action) => {
 
     case ORDER_VIDEOGAMES:
       const { orderBy, ascendantOrder } = action.payload;
-      console.log(orderBy, ascendantOrder, state.allVideogames);
+
       if (orderBy === "") return { ...state };
-      const orderVideogames = state.allVideogames.sort((a, b) => {
+      const orderVideogames = state.searchedVideogames.sort((a, b) => {
         if (orderBy === "name") {
           if (ascendantOrder) {
             return a.name.localeCompare(b.name);
@@ -94,20 +98,21 @@ const reducer = (state = initialState, action) => {
         }
         return b[orderBy] - a[orderBy];
       });
-      console.log(orderVideogames);
+
       return {
         ...state,
         videogames: [...orderVideogames],
         allVideogames: [...orderVideogames],
+        searchedVideogames: [...orderVideogames],
       };
 
     case FILTER_VIDEOGAMES:
       const { genre, platform, source } = action.payload;
-      let filteredGames = state.allVideogames;
+      let filteredGames = state.searchedVideogames;
       if (!genre && !platform && !source) {
         return {
           ...state,
-          videogames: state.allVideogames,
+          videogames: state.searchedVideogames,
         };
       }
       if (genre) {
@@ -169,7 +174,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         videogames: [...action.payload],
+        searchedVideogames: [...action.payload],
       };
+
+    case RESET_VIDEOGAMES:
+      return {
+        ...state,
+        videogames: [...state.allVideogames],
+        searchedVideogames: [...state.allVideogames],
+      };
+
     default:
       return { ...state };
   }

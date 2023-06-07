@@ -5,16 +5,24 @@ import { Poster } from "./Poster";
 import { Extra } from "./Extra";
 import style from "../../Modules/Home.module.css";
 import { connect } from "react-redux";
-import { addAllFavs } from "../../Redux/actions";
+import { addAllFavs, getVideogames } from "../../Redux/actions";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Home = ({ addAllFavs, videogames, genres, platforms, stores }) => {
+const Home = ({
+  addAllFavs,
+  getVideogames,
+  videogames,
+  genres,
+  platforms,
+  stores,
+}) => {
   useEffect(async () => {
     const favs = await axios
       .get("http://localhost:3001/favorites")
       .then(({ data }) => data);
     addAllFavs(favs);
+    getVideogames();
   }, []);
 
   const [page, setPage] = useState(0);
@@ -76,6 +84,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addAllFavs: (favs) => {
       dispatch(addAllFavs(favs));
+    },
+    getVideogames: (favs) => {
+      dispatch(getVideogames());
     },
   };
 };

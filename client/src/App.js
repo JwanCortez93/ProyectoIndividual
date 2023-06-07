@@ -42,13 +42,13 @@ function App({
     async function fetchData() {
       const checkGenres = await axios.get("http://localhost:3001/genres/db");
       if (checkGenres.data.length === 0) {
-        await axios.get(`http://localhost:3001/genres`);
         await axios.get(`http://localhost:3001/stores`);
         await axios.get(`http://localhost:3001/platforms`);
+        await axios.get(`http://localhost:3001/genres`);
       }
-      getGenres();
       getPlatforms();
       getStores();
+      getGenres();
       getVideogames();
     }
     fetchData();
