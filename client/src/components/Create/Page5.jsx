@@ -1,15 +1,27 @@
 import style from "../../Modules/Page1.module.css";
+import { useState } from "react";
 
 export const Page5 = ({
   check,
   platforms,
   stores,
   rating,
-
+  form,
   handleChange,
   nextPage,
   previousPage,
 }) => {
+  const [error, setError] = useState("");
+
+  const validatePage = (event) => {
+    if (rating < 0 || rating > 5) {
+      setError("El rating debe estar entre 0 y 5");
+    } else {
+      setError("");
+      nextPage(event);
+    }
+  };
+
   if (!stores) {
     return (
       <div
@@ -20,6 +32,7 @@ export const Page5 = ({
       ></div>
     );
   }
+
   return (
     <div name="page3" className={style.container2}>
       <div className="ratingContainer">
@@ -33,6 +46,24 @@ export const Page5 = ({
             onChange={handleChange}
           ></input>
         </div>
+        {error && (
+          <div>
+            <h6
+              style={{
+                fontSize: "0.5em",
+                width: "80%",
+                margin: "0.3em",
+                marginLeft: "10%",
+                padding: "0.3em",
+                borderRadius: "1em",
+                backgroundColor: "#9049023b",
+                color: "#ffae00f6",
+              }}
+            >
+              {error}
+            </h6>
+          </div>
+        )}
       </div>
       <div>
         <label className={style.label}>Where can we find it? </label>
@@ -60,7 +91,7 @@ export const Page5 = ({
           </button>
         </div>
         <div>
-          <button className={style.button} type="button" onClick={nextPage}>
+          <button className={style.button} type="button" onClick={validatePage}>
             Next
           </button>
         </div>

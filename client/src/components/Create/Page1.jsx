@@ -1,4 +1,5 @@
 import style from "../../Modules/Page1.module.css";
+import { useState } from "react";
 
 export const Page1 = ({
   check,
@@ -7,7 +8,19 @@ export const Page1 = ({
   image,
   handleChange,
   nextPage,
+  form,
 }) => {
+  const [error, setError] = useState("");
+
+  const validatePage = (event) => {
+    if (!form.name || !form.genres || !form.image) {
+      setError("Los campos de esta página son obligatorios");
+    } else {
+      setError("");
+      nextPage(event);
+    }
+  };
+
   if (!genres) {
     return (
       <div
@@ -33,7 +46,7 @@ export const Page1 = ({
       </div>
       <div>
         <label className={style.label}>
-          Which genres would you choose for your game? 
+          Which genres would you choose for your game?
         </label>
         <div className={style.genres}>
           {genres.map((genre) => {
@@ -55,7 +68,7 @@ export const Page1 = ({
 
       <div>
         <label className={style.label}>
-          Provide an image for the Card here: 
+          Provide an image for the Card here:
         </label>
         <input
           value={image}
@@ -65,8 +78,24 @@ export const Page1 = ({
           onChange={handleChange}
         ></input>
       </div>
+
+      {error && (
+        <div>
+          <h6
+            style={{
+              margin: "0",
+              padding: "0.5em",
+              borderRadius: "1em",
+              backgroundColor: "#9049023b",
+              color: "#ffae00f6",
+            }}
+          >
+            {error}
+          </h6>
+        </div>
+      )}
       <div className={style.buttons}>
-        <button className={style.button} type="button" onClick={nextPage}>
+        <button className={style.button} type="button" onClick={validatePage}>
           Next
         </button>
       </div>

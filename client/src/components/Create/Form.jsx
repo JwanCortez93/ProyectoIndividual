@@ -74,6 +74,7 @@ const Form = ({ genres, platforms, stores, getVideogames }) => {
       <form className={style.container} onSubmit={handleSubmit}>
         {page === 1 ? (
           <Page1
+            form={form}
             check={checkCheckBox}
             formName={form.name}
             genres={genres}
@@ -101,6 +102,7 @@ const Form = ({ genres, platforms, stores, getVideogames }) => {
         ) : null}
         {page === 4 ? (
           <Page5
+            form={form}
             check={checkCheckBox}
             rating={form.rating}
             stores={stores}
