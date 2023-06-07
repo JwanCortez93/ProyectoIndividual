@@ -6,15 +6,19 @@ import { Page3 } from "./Page3";
 import { Page4 } from "./Page4";
 import { Page5 } from "./Page5";
 import axios from "axios";
+import { connect } from "react-redux";
+import { getVideogames } from "../../Redux/actions";
+import { useNavigate } from "react-router-dom";
 
-export const Form = ({ genres, platforms, stores }) => {
+const Form = ({ genres, platforms, stores, getVideogames }) => {
+  const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [form, setForm] = useState({
     name: "",
     genres: [],
     image: "",
     description: "",
-    releaseDate: "",
+    releaseDate: null,
     platforms: [],
     rating: 0,
     stores: [],
@@ -28,6 +32,9 @@ export const Form = ({ genres, platforms, stores }) => {
   };
 
   const nextPage = () => {
+    if (!form.name || form.genres.length === 0 || !form.image) {
+      return window.alert("Los campos de esta página son obligatorios");
+    }
     setPage(page + 1);
   };
 
@@ -53,6 +60,9 @@ export const Form = ({ genres, platforms, stores }) => {
     event.preventDefault();
     console.log(form);
     await axios.post("http://localhost:3001/videogames", form);
+    getVideogames();
+    window.alert("Videojuego creado");
+    navigate("/home");
   };
 
   const checkCheckBox = (name, info) => {
@@ -106,3 +116,13 @@ export const Form = ({ genres, platforms, stores }) => {
     </div>
   );
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getVideogames: () => {
+      dispatch(getVideogames());
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Form);

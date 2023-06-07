@@ -1,5 +1,5 @@
 import style from "../../Modules/Create.module.css";
-import { Form } from "./Form";
+import Form from "./Form";
 
 export const Create = ({ genres, platforms, stores }) => {
   return (

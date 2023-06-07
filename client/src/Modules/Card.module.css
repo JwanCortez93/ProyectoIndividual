@@ -107,6 +107,69 @@
     animation-direction: alternate;
 }
 
+.container2{
+    
+  border:0.4em ridge black;
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10% 0% 10% 0% / 10% 0% 10% 0%;
+    background-color: #8d8686;
+    background: linear-gradient(28deg,#040404 0%, #d09e0b 60%, #f1f1f1 61%, #c8a61a 62%, #ffeda1 80%);
+    box-shadow:  -10px -10px 9px #6c0707,
+                 10px 10px 9px #b0b0b0;
+
+                 cursor:pointer;
+                 transition: background 2s
+
+    
+}
+
+.container2:hover .img{
+    filter: opacity(100%);
+}
+
+.container2:hover .name{
+    filter: opacity(100%);
+}
+
+.container2:hover .genres{
+    filter: opacity(100%);
+}
+
+.container2:hover .rating{
+    filter: opacity(100%);
+}
+
+.container2:hover {
+    animation: gradientTransition2 0.3s forwards;
+    animation-direction: alternate;
+}
+
+@keyframes gradientTransition2 {
+    0% {
+        background: linear-gradient(28deg,#040404 0%, #d09e0b 60%, #f1f1f1 61%, #c8a61a 62%, #ffeda1 80%);
+    }
+
+    25%{
+        background: linear-gradient(28deg,#040404 0%, #d09e0b 50%, #f1f1f1 60%, #c8a61a 61%, #ffeda1 100%);
+    }
+    50%{
+        background: linear-gradient(28deg,#040404 0%, #d09e0b 30%, #f1f1f1 70%, #c8a61a 71%, #ffeda1 100%);
+    }
+
+    75% {
+        background: linear-gradient(28deg,#040404 0%, #d09e0b 20%, #f1f1f1 80%, #c8a61a 81%, #ffeda1 100%);
+    }
+    100% {
+      background: linear-gradient(28deg, #040404 0%, #d09e0b 10%, #f1f1f1 90%, #c8a61a 91%, #ffeda1 100%);
+    }
+  }
+
 @keyframes gradientTransition {
     0% {
       background: linear-gradient(28deg, #040404 0%, #8d8686 60%, #f1f1f1 61%, #cdcdcd 62%, #818181 80%);

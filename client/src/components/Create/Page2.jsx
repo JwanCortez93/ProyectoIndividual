@@ -4,7 +4,7 @@ export const Page2 = ({ handleChange, nextPage, previousPage }) => {
   return (
     <div name="page2" className={style.container}>
       <label className={style.label}>
-        Provide a description to your game:{" "}
+        Provide a description to your game: 
       </label>
       <textarea
         className={style.description}

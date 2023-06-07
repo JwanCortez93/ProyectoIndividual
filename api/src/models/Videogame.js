@@ -20,12 +20,7 @@ module.exports = (sequelize) => {
 
       description_raw: {
         type: DataTypes.TEXT,
-        allowNull: false,
       },
-
-      // platforms: {
-      //   type: DataTypes.ARRAY(DataTypes.STRING),
-      // },
 
       image: {
         type: DataTypes.STRING,
@@ -38,14 +33,6 @@ module.exports = (sequelize) => {
       rating: {
         type: DataTypes.FLOAT,
       },
-
-      // genre: {
-      //   type: DataTypes.ARRAY(DataTypes.STRING),
-      // },
-
-      // stores: {
-      //   type: DataTypes.ARRAY(DataTypes.STRING),
-      // },
 
       esrb_rating: {
         type: DataTypes.STRING,

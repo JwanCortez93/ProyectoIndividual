@@ -33,7 +33,7 @@ export const Page1 = ({
       </div>
       <div>
         <label className={style.label}>
-          Which genres would you choose for your game?{" "}
+          Which genres would you choose for your game? 
         </label>
         <div className={style.genres}>
           {genres.map((genre) => {
@@ -55,7 +55,7 @@ export const Page1 = ({
 
       <div>
         <label className={style.label}>
-          Provide an image for the Card here:{" "}
+          Provide an image for the Card here: 
         </label>
         <input
           value={image}

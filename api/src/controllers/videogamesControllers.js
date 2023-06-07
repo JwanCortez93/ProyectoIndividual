@@ -98,7 +98,7 @@ const createVideogame = async ({
   const newVideogame = await Videogame.create({
     name,
     description_raw: description,
-    platforms,  
+    platforms,
     image,
     releaseDate,
     rating,

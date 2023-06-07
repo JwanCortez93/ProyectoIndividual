@@ -9,7 +9,11 @@ export const Card = ({ id, name, image, genres, rating }) => {
     );
   }
   return (
-    <div className={style.container}>
+    <div
+      className={
+        id.toString().includes("-") ? style.container2 : style.container
+      }
+    >
       <h3 className={style.rating}>⭐{rating}</h3>
       <h1 className={style.name}>{name}</h1>
       <img className={style.img} src={image} alt={name} />
