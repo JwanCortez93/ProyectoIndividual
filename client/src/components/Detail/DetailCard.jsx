@@ -58,8 +58,8 @@ const DetailCard = ({
   const platformsArray = [];
   platforms.forEach((platform) =>
     platformsArray.push({
-      id: platform.platform.id,
-      name: platform.platform.name,
+      id: platform.platform ? platform.platform.id : platform.id,
+      name: platform.platform ? platform.platform.name : platform.name,
     })
   );
 

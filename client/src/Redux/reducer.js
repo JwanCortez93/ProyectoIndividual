@@ -102,31 +102,69 @@ const reducer = (state = initialState, action) => {
       };
 
     case FILTER_VIDEOGAMES:
-      const { genre, platform } = action.payload;
-      if (genre === "" && platform === "") {
+      const { genre, platform, source } = action.payload;
+      let filteredGames = state.allVideogames;
+      if (!genre && !platform && !source) {
         return {
           ...state,
           videogames: state.allVideogames,
         };
-      } else {
-        const filteredGames = state.allVideogames.filter((game) => {
-          if (genre === "") {
-            return game.platforms.some((obj) => obj.platform.name === platform);
-          }
-          if (platform === "") {
-            return game.genres.some((obj) => obj.name === genre);
-          }
-          return (
-            game.genres.some((obj) => obj.name === genre) &&
-            game.platforms.some((obj) => obj.platform.name === platform)
-          );
-        });
-
-        return {
-          ...state,
-          videogames: [...filteredGames],
-        };
       }
+      if (genre) {
+        filteredGames = filteredGames.filter((game) => {
+          return game.genres.some((obj) => obj.name === genre);
+        });
+      }
+
+      if (platform) {
+        filteredGames = filteredGames.filter((game) => {
+          return game.platforms.some((obj) => obj.platform.name === platform);
+        });
+      }
+
+      if (source === "Api") {
+        filteredGames = filteredGames.filter((game) => {
+          const id = game.id.toString();
+          return !id.includes("-");
+        });
+      }
+
+      if (source === "Database") {
+        filteredGames = filteredGames.filter((game) => {
+          const id = game.id.toString();
+          return id.includes("-");
+        });
+      }
+
+      return {
+        ...state,
+        videogames: [...filteredGames],
+      };
+    // const { genre, platform, source } = action.payload;
+    // if (genre === "" && platform === "" && source) {
+    //   return {
+    //     ...state,
+    //     videogames: state.allVideogames,
+    //   };
+    // } else {
+    //   const filteredGames = state.allVideogames.filter((game) => {
+    //     if (genre === "") {
+    //       return game.platforms.some((obj) => obj.platform.name === platform);
+    //     }
+    //     if (platform === "") {
+    //       return game.genres.some((obj) => obj.name === genre);
+    //     }
+    //     return (
+    //       game.genres.some((obj) => obj.name === genre) &&
+    //       game.platforms.some((obj) => obj.platform.name === platform)
+    //     );
+    //   });
+
+    //   return {
+    //     ...state,
+    //     videogames: [...filteredGames],
+    //   };
+    // }
     case CHANGE_VIDEOGAMES:
       return {
         ...state,

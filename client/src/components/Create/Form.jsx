@@ -51,7 +51,7 @@ export const Form = ({ genres, platforms, stores }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(form);
     await axios.post("http://localhost:3001/videogames", form);
   };
 

@@ -29,10 +29,16 @@ export const Detail = () => {
       <DetailCard
         id={videogame.id}
         name={videogame.name}
-        image={videogame.background_image}
+        image={
+          videogame.background_image
+            ? videogame.background_image
+            : videogame.image
+        }
         platforms={videogame.platforms}
         description={videogame.description_raw}
-        released={videogame.released}
+        released={
+          videogame.released ? videogame.released : videogame.releaseDate
+        }
         rating={videogame.rating}
         genres={videogame.genres}
       />

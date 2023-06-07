@@ -15,8 +15,13 @@ export const Cards = ({ videogames }) => {
               to={`/detail/${videogame.id}`}
             >
               <Card
+                id={videogame.id}
                 name={videogame.name}
-                image={videogame.background_image}
+                image={
+                  videogame.background_image
+                    ? videogame.background_image
+                    : videogame.image
+                }
                 genres={videogame.genres}
                 rating={videogame.rating}
               />

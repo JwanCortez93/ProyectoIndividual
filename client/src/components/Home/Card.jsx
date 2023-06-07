@@ -1,6 +1,6 @@
 import style from "../../Modules/Card.module.css";
 
-export const Card = ({ name, image, genres, rating }) => {
+export const Card = ({ id, name, image, genres, rating }) => {
   const genresArray = [];
 
   if (genres.length > 0) {
