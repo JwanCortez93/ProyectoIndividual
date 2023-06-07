@@ -19,6 +19,10 @@ const Home = ({ addAllFavs, videogames, genres, platforms, stores }) => {
 
   const [page, setPage] = useState(0);
 
+  useEffect(() => {
+    setPage(0);
+  }, [videogames]);
+
   const handlePage = (event) => {
     switch (event.target.name) {
       case "Next":

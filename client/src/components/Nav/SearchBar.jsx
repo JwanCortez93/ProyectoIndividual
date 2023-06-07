@@ -21,6 +21,7 @@ const SearchBar = ({ changeVideogames }) => {
       `http://localhost:3001/videogames?name=${searchText}`
     );
     changeVideogames(foundGames.data);
+    setSearchText("");
   };
 
   const handleChange = async (event) => {
@@ -39,37 +40,40 @@ const SearchBar = ({ changeVideogames }) => {
     <div className={style.div}>
       <div>
         <input
+          value={searchText}
           onChange={handleChange}
           className={style.input}
           placeholder="Search Game"
           autoComplete="off"
         ></input>
         <div className={style.predictions}>
-          <ul>
-            {predictions.map((pred, index) => {
-              return (
-                <Link
-                  onClick={() => setPredictions([])}
-                  style={{ textDecoration: "none", color: "black" }}
-                  to={`/detail/${pred.id}`}
-                >
-                  <li key={index} className={style.items}>
-                    <img
-                      style={{
-                        marginRight: "2em",
-                        width: "4rem",
-                        height: "5rem",
-                        objectFit: "cover",
-                      }}
-                      src={pred.background_image}
-                      alt={pred.name}
-                    />
-                    <h4>{pred.name}</h4>
-                  </li>
-                </Link>
-              );
-            })}
-          </ul>
+          {searchText && (
+            <ul>
+              {predictions.map((pred, index) => {
+                return (
+                  <Link
+                    onClick={() => setPredictions([])}
+                    style={{ textDecoration: "none", color: "black" }}
+                    to={`/detail/${pred.id}`}
+                  >
+                    <li key={index} className={style.items}>
+                      <img
+                        style={{
+                          marginRight: "2em",
+                          width: "4rem",
+                          height: "5rem",
+                          objectFit: "cover",
+                        }}
+                        src={pred.background_image}
+                        alt={pred.name}
+                      />
+                      <h4>{pred.name}</h4>
+                    </li>
+                  </Link>
+                );
+              })}
+            </ul>
+          )}
         </div>
       </div>
       <button onClick={handleSearch} className={style.button}>
